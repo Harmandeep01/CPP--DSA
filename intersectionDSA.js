@@ -5,9 +5,9 @@ const arr3 = [];
 
 for (i in arr1) {
     for (j in arr2) {
-        if (i === j){
-            
+        if (arr1[i] === arr2[j]){
+            arr3.push(arr1[i])
         }
     }
-
+}
 console.log(arr3)
