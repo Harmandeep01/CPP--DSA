@@ -142,42 +142,170 @@ void pattern17(int n){
     }cout << endl;
   }
 }
-void pattern18(int n) {
-    for (int i = 0; i < n; i++) {
-        // Print leading spaces
-        for (int spaces = 0; spaces < n - i - 1; spaces++) {
-            cout << " ";
-        }
+void pattern18(int n){
+  for(int i = 0; i < n; i++){
+    char ch = 'A';
+    for(int spaces = 0; spaces < n - i -1; spaces++){
+      cout << " ";
+    }
+    int breakpt = (2 * i + 1) / 2;
+    for(int j = 0; j < 2 * i + 1;j++){
+      if(j < breakpt)
+      {
+        cout << ch; 
+        ch++;
+      }else{
+        cout << ch;
+        ch--;
+      }
+      
+    }cout << endl;
+  }
+}
+void pattern19(int n){
+  //My solution
+  for(int i = 1; i <= n; i++){
+    char ch = 'A' + n - i;
+    for(int j = 0; j <i; j++){
+      cout << ch << " ";
+      ch++;
+    }cout << endl;
+  }
+  //strivers solution
+  for(int i = 0; i < n; i++){
+    for(char ch = 'E' - i; ch <= 'E'; ch++){
+      cout << ch << " ";
+    }cout << endl;
+  }
+}
+void pattern20(int n){
+  for(int i = 0; i < n - 1; i++){
+    //for stars
+    for(int stars = 0; stars < n - i; stars++){
+      cout << "* ";
+    }
+    //spaces
+   for(int spaces = 0; spaces < i; spaces++){
+    cout << "    ";
+   }
+    //for stars
+    for(int stars = 0; stars < n - i; stars++){
+      cout << " *";
+    }
+    if(i == 6){
+    }else{
+      cout << endl;
+    }
+  }
 
-        // Print characters
-        char ch = 'A';
-        int breakpoint = (2 * i + 1) / 2;
-        for (int j = 0; j < 2 * i + 1; j++) {
-            cout << ch;
-            if (j < breakpoint) {
-                ch++; // Increment character for the left half and middle
+  //inverse pattern
+  for(int i = 0; i <= n; i++){ 
+    //for stars
+    for(int stars = 0; stars < i; stars++){
+      cout << "* ";
+    }
+    //spaces
+   for(int spaces = 0; spaces < n-i; spaces++){
+    cout << "    ";
+   }
+    //for stars
+    for(int stars = 0; stars < i; stars++){
+      cout << " *";
+    } if(i == 8){
+    }else{
+      cout << endl;
+    }
+  }
+}
+void pattern21(int n){
+  /*My Solution 
+  int initial_space = 8; //8,6,4,2,0
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j <= i; j++){
+      cout << "*";
+    }
+    for(int spaces = 0; spaces < initial_space; spaces++){
+      cout << " ";
+    }
+    for(int j = 0; j <= i; j++){
+      cout << "*"; 
+    }
+    initial_space -= 2;
+    cout << endl;
+  }
+  initial_space = 2;
+  for(int i = 0; i < n - 1; i++){
+    for(int j = 0; j <= n - i - 2; j++){
+      cout << "*";
+    }
+    for(int spaces = 0; spaces < initial_space; spaces++){
+      cout << " ";
+    }
+    for(int j = 0; j <= n - i - 2; j++){
+      cout << "*"; 
+    }
+    initial_space += 2;
+    cout << endl;
+  }
+  */
+
+  /*Strivers Solution*/
+  int initial_space = 2*n - 2;
+  for(int i = 1; i < 2*n; i++){
+    int stars = i;
+    if(i > n) stars = 2*n -i;
+    for(int j = 0; j < stars; j++){
+      cout << "*";
+    }
+    for(int j = 0; j < initial_space; j++){
+      cout << " ";
+    }
+    for(int j = 0; j < stars; j++){
+      cout << "*";
+    }
+    cout << endl;
+    if(i < n) initial_space -= 2;
+    else initial_space += 2;
+  }
+}
+void pattern22(int n){
+  for(int i = 0; i < n; i++){
+    int row = i;
+    if(row == 0 || row == n-1){
+      for(int j = 0; j < n; j++){
+        cout << "*";
+      }
+    }else{
+      for(int j = 0; j < n; j++){
+        if(j == 0 || j == n - 1){
+          cout << "*";
+        }else{
+          cout << " ";
+        }
+      }
+    }cout << endl;
+    row++;
+  }
+}
+void pattern23(int n) {
+    int size = 2 * n - 1; // Total size of the square pattern
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            // Determine the value based on the minimum distance to an edge
+            if (i == 0 || i == size - 1 || j == 0 || j == size - 1) {
+                cout << n; // Print boundary value
             } else {
-                ch--; // Decrement character for the right half
+                int innerValue = n - min(min(i, j), min(size - i - 1, size - j - 1));
+                cout << innerValue;
             }
         }
-
-        // Move to the next line
         cout << endl;
     }
 }
-void pattern19(int n){
-  char ch = 'A' + n - 1;
-  for (int i = 0; i < n; i++) {
-    // ch = 
-    for(char c = ch ; c < i; c++){
-      cout << c;
-    }
-    ch = ch -i;
-    cout << endl;
-  }
-}
+
 int main() {
-    int n = 5;
-    pattern19(n);
+    int n = 3;
+    pattern23(n);
     return 0;
 }
