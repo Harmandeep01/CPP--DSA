@@ -1,6 +1,4 @@
-#include <algorithm>
 #include<bits/stdc++.h>
-#include <deque>
 #include <set>
 using namespace std;
 
