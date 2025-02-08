@@ -21,7 +21,7 @@ int main() {
     sort(p, p + size, comp);
     /*
         Desired output :
-        {4, 2} {1, 2} {8, 5s}
+        {10, 1} {4, 2} {1, 2} {8, 5}
     */
     for(auto i : p){
         cout << i.first << " " << i.second << "  ";
