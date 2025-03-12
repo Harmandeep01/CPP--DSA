@@ -1,8 +1,8 @@
 modules = ["cpp-clang14"]
-run = "g++ -o main *.cpp && ./main"
+run = "make run"
 
 [nix]
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "g++ -o main *.cpp && ./main"]
+run = "make run"
