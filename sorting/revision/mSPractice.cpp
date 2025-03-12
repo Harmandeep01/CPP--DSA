@@ -1,12 +1,9 @@
-#include<iostream>
-#include <vector>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-void merge(vector<int> &arr, int low, int mid, int high){
+void merge(vector<int>& arr, int low, int mid, int high){
     int left = low;
     int right = mid + 1;
-
     vector<int> temp;
     while(left <= mid && right <= high){
         if(arr[left] < arr[right]){
@@ -17,6 +14,7 @@ void merge(vector<int> &arr, int low, int mid, int high){
             right++;
         }
     }
+
     while(left <= mid){
         temp.push_back(arr[left]);
         left++;
@@ -31,21 +29,20 @@ void merge(vector<int> &arr, int low, int mid, int high){
     }
 }
 
-void mergeSort(vector<int> &arr, int low, int high){
+void mSort(vector<int>& arr, int low, int high){
     if(low == high) return;
     int mid = (low + high) / 2;
-    mergeSort(arr, low, mid);
-    mergeSort(arr, mid + 1, high);
-    merge(arr, low, mid, high);
 
+    mSort(arr, low, mid);
+    mSort(arr, mid + 1, high);
+
+    merge(arr, low, mid, high);
 }
 
 int main(){
-
-    vector<int> nums = {21, 12, 11, 9, 1, 100, 99, 75};
-
-    mergeSort(nums, 0, nums.size() - 1);
-    for(auto i : nums){
+    vector<int> arr = {53, 52, 21, 18, 81, 2, 75};
+    mSort(arr, 0, arr.size()-1);
+    for(auto i : arr){
         cout << i << " ";
     }cout << endl;
     return 0;
