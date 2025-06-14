@@ -27,6 +27,8 @@ vector<vector<int>> threeSum(vector<int>& nums){
 }
 */
 
+
+/*
 //Better Solution
 //Time Complexity => O(n^2) * log m (no. of variables)
 //Space Complexity => O(n) + O (no. of sets) * 2; 2 because we are copying same set into vector to return
@@ -54,7 +56,40 @@ vector<vector<int>> threeSum(vector<int>& nums){
   vector<vector<int>> ans(st.begin(), st.end());
   return ans;
 }
+*/
 
+//Optimized Solution
+vector<vector<int>> threeSum(vector<int>& nums){
+  int n = nums.size();
+  vector<vector<int>> ans;
+  sort(nums.begin(), nums.end());
+  int i = 0;
+
+  while(i < n -2){
+    if(i != 0 && nums[i] == nums[i - 1]){
+      i++;
+      continue;
+    }
+    
+    int j = i + 1, k = (n - 1);
+    
+    while(j < k){
+      int sum = nums[i] + nums[j] + nums[k];
+      if(sum == 0){
+        ans.push_back({nums[i], nums[j], nums[k]});
+        j++, k--;
+        while(nums[j - 1] == nums[j] && j < k) j++;
+        while(nums[k + 1] == nums[k] && j < k) k--;
+      }else if(sum < 0){
+        j++;
+      }else{
+        k--;
+      }
+    }
+    i++;
+  }
+    return ans;
+}
 int main() {
   vector<int> nums = {-1,0,1,2,-1,-4};
   vector<vector<int>> res = threeSum(nums);
