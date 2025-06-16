@@ -30,7 +30,6 @@ int longestConsecutive(vector<int>& nums){
 }
 */
 /*
-
 //Better Solution
 int longestConsecutive(vector<int>& nums){
   sort(nums.begin(), nums.end());
@@ -79,7 +78,7 @@ int longestConsecutive(vector<int>& nums){
 }
 
 int main() {
-  vector<int> nums = {};
+  vector<int> nums = {1,1,1,2,2,2,3,4,5,5,6,8,9};
   int ans = longestConsecutive(nums);
   cout << ans;
 }
