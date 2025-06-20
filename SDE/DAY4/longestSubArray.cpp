@@ -47,8 +47,8 @@ int longestSubArray(vector<int>& nums, int k){
 }
 int main(){
 
-    vector<int> nums = {2,0,0,3};
+    vector<int> nums = {1,2,1,2,1};
     int res = longestSubArray(nums, 3);
-     cout << res;   
+     cout  << res;   
     return 0;
 }
