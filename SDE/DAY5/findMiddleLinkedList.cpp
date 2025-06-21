@@ -33,6 +33,9 @@ ListNode* findMiddle(ListNode* head){
 */
 
 //Optimal Solution
+//Time Complexity = O(n/2)
+//Space Complexity = O(1)
+
 ListNode* findMiddle(ListNode* head){
     ListNode* fast = head;
     ListNode* slow = head;
