@@ -11,9 +11,9 @@ using namespace std;
  };
  
 //Normal Solution
-/*
+
 ListNode* reverseList(ListNode* head) {
-        ListNode *prev = nullptr;
+        ListNode* prev = nullptr;
         ListNode* temp = head;
 
         while(temp != nullptr){
@@ -24,9 +24,9 @@ ListNode* reverseList(ListNode* head) {
         }
         return prev;
     }
-*/
 
 //Recursive Solution
+/*
 ListNode* reverseList(ListNode* head) {
     if(head == nullptr || head->next == nullptr) return head;
 
@@ -36,6 +36,7 @@ ListNode* reverseList(ListNode* head) {
     head->next = nullptr;
     return newHead;
 }
+*/
 void printList(ListNode* head) {
     while (head != nullptr) {
         cout << head->val << " ";
