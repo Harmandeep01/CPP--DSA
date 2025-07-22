@@ -22,24 +22,27 @@ ListNode *detectCycle(ListNode *head) {
 */
 
 //Better
-ListNode *detectCycle(ListNode *head){
+ListNode* detectCycle(ListNode* head){
+     if (!head || !head->next) return NULL;
+
     ListNode* slow = head;
     ListNode* fast = head;
-    // ListNode* entry = head;
-    while(fast->next&& fast->next->next != NULL){
+
+    while(fast && fast->next){
         slow = slow->next;
         fast = fast->next->next;
 
-        if(slow == fast){
-            fast = head;
-            while(fast != slow){
-                slow = slow->next;
-                fast = fast->next;
-            }
-            return fast;
-        }
+       if(slow == fast){
+           fast = head;
+           while(fast != slow){
+               slow = slow->next;
+               fast = fast->next;
+           }
+           return fast;
+       }
     }
-   return NULL;
+
+    return NULL;
 }
 int main() {
     // Create the first linked list: 1 -> 2 -> 3
